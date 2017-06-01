@@ -6,7 +6,7 @@ strokeWeight = 1		# thickness of outline
 # set window name
 windowName = "Object Detection"
 # load an image to search for faces
-img = cv2.imread(r".\testpic\test8.jpg")
+img = cv2.imread(r".\testpic\test4.jpg")
 # load detection file (various files for different views and uses)
 cascade = cv2.CascadeClassifier(r".\data\haarcascades_cuda\haarcascade_frontalface_alt.xml")
 # preprocessing, as suggested by: http://www.bytefish.de/wiki/opencv/object_detection

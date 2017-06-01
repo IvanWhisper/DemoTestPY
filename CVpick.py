@@ -2,7 +2,7 @@
 import cv2
 # import cv2.cv as cv
 
-img = cv2.imread(r".\testpic\test8.jpg")
+img = cv2.imread(r".\testpic\test6.jpg")
 
 def detect(img, cascade):
     '''detectMultiScale函数中smallImg表示的是要检测的输入图像为smallImg，
@@ -40,30 +40,28 @@ rects = detect(gray, cascade)
 while True:
     #vis为img副本
     vis = img.copy()
-
     #画矩形
     draw_rects(vis, rects, (0, 255, 0))
-
+    n=0
     for x1, y1, x2, y2 in rects:
         #print(x1,y1,x2,y2)
         #   roi = gray[y1:y2, x1:x2]
         #   vis_roi = vis[y1:y2, x1:x2]
         # print(x1,y1,x2,y2)
         crop = vis[y1:y2, x1:x2]
-
-        cv2.imshow('crop', crop)
-
-        cv2.imwrite(r".\DonePic\imgpick.jpg", crop)
+        #cv2.imshow('crop', crop)
+        cv2.imwrite(r".\PickFaceImg\imgpick"+str(n)+".jpg", crop)
+        n+=1
         #  subrects = detect(roi.copy(), nested)
         #  draw_rects(vis_roi, subrects, (255, 0, 0))
-
-
     # draw_str(vis, (20, 20), 'time: %.1f ms' % (dt * 1000))
-    #cv2.imshow('facedetect', vis)
+    cv2.imshow('facedetect', vis)
+    cv2.imwrite(r".\LocationImg\imglocal.jpg",vis)
 
+    #print(rects.count())
+    print(len(rects))
 
-
-    if cv2.waitKey(20) == 27:
+    if n>len(rects)-1:
         break
 
 exit()
