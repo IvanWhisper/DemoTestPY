@@ -2,7 +2,7 @@
 import cv2
 # import cv2.cv as cv
 
-img = cv2.imread(r".\testpic\test6.jpg")
+img = cv2.imread(r".\testpic\test4.jpg")
 
 def detect(img, cascade):
     '''detectMultiScale函数中smallImg表示的是要检测的输入图像为smallImg，
